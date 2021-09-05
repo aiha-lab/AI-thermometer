@@ -28,8 +28,11 @@ This demo is only for face recognition on normal images(not for thermal images).
 
 ### python/
 TensorRT sample python codes we used, and their variations. We applied INT8 quantization and calibration scheme in 'int_caffe_mnist' to 'uff_ssd'. So we were able to implement the backbone network(MobileNet-v2) of SSD in INT8 precision.
-* uff_ssd: Object Detection with SSD in Python
-* int8_caffe_mnist: INT8 Calibration In Python
+* uff_ssd: Object Detection with SSD in Python (Original TensorRT sample)
+* uff_ssd_mb2: Chage the backbone network from Inception-v2 to MobileNet-v2. (The backbone is Inception-v2 in original sample codes)
+* uff_ssd_mb2_wider: The MobileNet-v2-based SSD model is retrained on WIDER FACE dataset for only face detection. (transfer learning)
+* uff_ssd_mb2_thermal: Retrain the model on custom thermal image dataset.
+* int8_caffe_mnist: INT8 Calibration In Python (Original TensorRT sample)
 
 ## References
 * TensorRT demo code: https://github.com/jkjung-avt/tensorrt_demos
