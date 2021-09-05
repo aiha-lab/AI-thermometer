@@ -16,13 +16,18 @@ In general, most of the AI-based thermometers are using not only normal RGB came
 ### demo/
 Final demo of this project.
 
-![Alt text](demo/results/1.jpg)
-![Alt text](demo/results/2.jpg)
+<img src="demo/results/1.jpg" width="240px" height="180px"></img>
+<img src="demo/results/2.jpg" width="240px" height="180px"></img><br/>
 
 ### demo_face_detection/
 This demo is only for face recognition on normal images(not for thermal images).
 
-<img src="demo_face_detection/demo_face_detection_demo_result.gif" width="640px" height="360px"></img><br/>
+<img src="demo_face_detection/demo_face_detection_demo_result.gif" width="320px" height="180px"></img><br/>
+
+### python/
+TensorRT sample python codes we used, and their variations. We applied INT8 quantization and calibration scheme in 'int_caffe_mnist' to 'uff_ssd'. So we were able to implement the backbone network(MobileNet-v2) of SSD in INT8 precision.
+* uff_ssd: Object Detection with SSD in Python
+* int8_caffe_mnist: INT8 Calibration In Python
 
 ## References
 * TensorRT demo code: https://github.com/jkjung-avt/tensorrt_demos
