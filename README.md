@@ -6,6 +6,8 @@ This is a project which implement high-speed AI thermometer.
 The goal was implementing AI thermometer on embedded system using deep learning-based object detection model. So we optimized SSD(Single-shot multibox detector) via TensorRT, which is the library of NVIDIA for high-performance deep learning inference. Note that the TensorRT version which we used is 6.0.1
 ### Using thermal imaging camera only (w/o normal RGB camera)
 In general, most of the AI-based thermometers are using not only normal RGB camera but also thermal imaging camera. Because the face detection should work on normal images. Therefore, we did transfer learning, retrained SSD on custom dataset of thermal face images(using TensorFlow object detection API). We constructed the dataset by capture images on thermal imaging camera manually.
+### Pipeline sturcture
+The demo code(demo/demo.py) is operates in pipeline fashion. The entire workload is split into threads, and each thread works separately so overall throughput (FPS) is improved comparing to serial way. I got this idea from JK Jung's code (https://github.com/jkjung-avt/tensorrt_demos/blob/master/trt_ssd_async.py).
 
 ## Environment
 * Platform: Jetson AGX Xavier Developer kit
