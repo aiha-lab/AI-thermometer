@@ -1,0 +1,32 @@
+Script started on 2020-08-06 12:13:46+0900
+]0;nvidia@nvidia-desktop: ~/python/uff_ssd[01;32mnvidia@nvidia-desktop[00m:[01;34m~/python/uff_ssd[00m$ cd
+]0;nvidia@nvidia-desktop: ~[01;32mnvidia@nvidia-desktop[00m:[01;34m~[00m$ sou[K[K[Kcdvim 32.txt ls[Kcd python/uff_ssd/[Kvim detect_objects.py [14@sudo chown nvidia[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Pvim[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14@sudo chown nvidia[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Pvim[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kcdsudo cp detect_objects.py ~/[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd[Klsvim detect_objects.py [14@sudo chown nvidia[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Pvim[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[8Pcd python/uff_ssd/ls[Kvim 32.txt cd[K[Ksource willy/bin/c[Kactivate
+(willy) ]0;nvidia@nvidia-desktop: ~[01;32mnvidia@nvidia-desktop[00m:[01;34m~[00m$ cd -
+/home/nvidia/python/uff_ssd
+(willy) ]0;nvidia@nvidia-desktop: ~/python/uff_ssd[01;32mnvidia@nvidia-desktop[00m:[01;34m~/python/uff_ssd[00m$ python3 s[Kc[Kdetect_objects.py -p 16  ./images/imga[K[Kam[K[Kage2.jpg 
+2020-08-06 12:15:02.460239: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.0
+[TensorRT] ERROR: Could not register plugin creator:  FlattenConcat_TRT in namespace: 
+TensorRT inference engine settings:
+  * Inference precision - DataType.HALF
+  * Max batch size - 1
+
+Loading cached TensorRT engine from /home/nvidia/python/uff_ssd/utils/../workspace/engines/HALF/engine_bs_1.buf
+TensorRT inference time: 41 ms
+Detected kite with confidence 97%
+Detected person with confidence 91%
+Detected kite with confidence 89%
+Detected person with confidence 89%
+Detected kite with confidence 83%
+Detected kite with confidence 81%
+Detected person with confidence 76%
+Detected kite with confidence 74%
+Detected person with confidence 70%
+Detected person with confidence 62%
+Detected person with confidence 59%
+Total time taken for one image: 313 ms
+
+Saved output image to: /home/nvidia/python/uff_ssd/utils/../image_inferred.jpg
+(willy) ]0;nvidia@nvidia-desktop: ~/python/uff_ssd[01;32mnvidia@nvidia-desktop[00m:[01;34m~/python/uff_ssd[00m$ exit
+exit
+
+Script done on 2020-08-06 12:15:24+0900

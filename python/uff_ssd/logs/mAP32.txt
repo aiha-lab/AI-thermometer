@@ -1,0 +1,22 @@
+TensorRT SSD Img/sec: 66.16
+AP for aeroplane = 0.7790
+AP for bicycle = 0.7852
+AP for bird = 0.6773
+AP for boat = 0.5566
+AP for bottle = 0.4751
+AP for bus = 0.8372
+AP for car = 0.7555
+AP for cat = 0.8222
+AP for chair = 0.5891
+AP for cow = 0.7836
+AP for diningtable = 0.6855
+AP for dog = 0.7923
+AP for horse = 0.8423
+AP for motorbike = 0.8167
+AP for person = 0.7856
+AP for pottedplant = 0.4289
+AP for sheep = 0.7298
+AP for sofa = 0.7620
+AP for train = 0.8417
+AP for tvmonitor = 0.7114
+Mean AP = 0.7229

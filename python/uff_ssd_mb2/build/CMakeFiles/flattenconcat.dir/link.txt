@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -Wall -Wno-long-long -pedantic -Wno-deprecated-declarations  -shared  -o libflattenconcat.so CMakeFiles/flattenconcat.dir/plugin/FlattenConcat.cpp.o -Wl,-rpath,/usr/local/cuda/lib64 -lnvinfer /usr/local/cuda/lib64/libcublas.so 

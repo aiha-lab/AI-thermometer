@@ -1,0 +1,56 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/nvidia/python/uff_ssd/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_cded1/fast"
+/usr/bin/make -f CMakeFiles/cmTC_cded1.dir/build.make CMakeFiles/cmTC_cded1.dir/build
+make[1]: Entering directory '/home/nvidia/python/uff_ssd/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_cded1.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -Wall -Wno-long-long -pedantic -Wno-deprecated-declarations    -o CMakeFiles/cmTC_cded1.dir/CheckSymbolExists.cxx.o -c /home/nvidia/python/uff_ssd/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_cded1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cded1.dir/link.txt --verbose=1
+/usr/bin/c++   -Wall -Wno-long-long -pedantic -Wno-deprecated-declarations     -rdynamic CMakeFiles/cmTC_cded1.dir/CheckSymbolExists.cxx.o  -o cmTC_cded1 
+CMakeFiles/cmTC_cded1.dir/CheckSymbolExists.cxx.o: In function `main':
+CheckSymbolExists.cxx:(.text+0x14): undefined reference to `pthread_create'
+CheckSymbolExists.cxx:(.text+0x18): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_cded1.dir/build.make:97: recipe for target 'cmTC_cded1' failed
+make[1]: *** [cmTC_cded1] Error 1
+make[1]: Leaving directory '/home/nvidia/python/uff_ssd/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_cded1/fast' failed
+make: *** [cmTC_cded1/fast] Error 2
+
+File /home/nvidia/python/uff_ssd/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/nvidia/python/uff_ssd/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2059e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2059e.dir/build.make CMakeFiles/cmTC_2059e.dir/build
+make[1]: Entering directory '/home/nvidia/python/uff_ssd/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2059e.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -Wall -Wno-long-long -pedantic -Wno-deprecated-declarations -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_2059e.dir/CheckFunctionExists.cxx.o -c /home/nvidia/python/uff_ssd/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_2059e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2059e.dir/link.txt --verbose=1
+/usr/bin/c++   -Wall -Wno-long-long -pedantic -Wno-deprecated-declarations -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_2059e.dir/CheckFunctionExists.cxx.o  -o cmTC_2059e -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_2059e.dir/build.make:97: recipe for target 'cmTC_2059e' failed
+make[1]: *** [cmTC_2059e] Error 1
+make[1]: Leaving directory '/home/nvidia/python/uff_ssd/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_2059e/fast' failed
+make: *** [cmTC_2059e/fast] Error 2
+
+

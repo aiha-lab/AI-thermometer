@@ -1,0 +1,15 @@
+[TensorRT] VERBOSE: Engine generation completed in 26.893 seconds.
+[TensorRT] VERBOSE: Engine Layer Information:
+[TensorRT] VERBOSE: Layer: conv1 input reformatter 0 (Reformat), Tactic: 0, data[Float(1,28,28)] -> conv1 reformatted input 0[Half(1,28,28)]
+[TensorRT] VERBOSE: Layer: conv1 (hcudnn), Tactic: -4097850214384059472, conv1 reformatted input 0[Half(1,28,28)] -> conv1[Half(20,24,24)]
+[TensorRT] VERBOSE: Layer: pool1 (Pooling), Tactic: -3, conv1[Half(20,24,24)] -> pool1[Half(20,12,12)]
+[TensorRT] VERBOSE: Layer: conv2 input reformatter 0 (Reformat), Tactic: 0, pool1[Half(20,12,12)] -> conv2 reformatted input 0[Half(20,12,12)]
+[TensorRT] VERBOSE: Layer: conv2 (h884cudnn), Tactic: 2105695814191699972, conv2 reformatted input 0[Half(20,12,12)] -> conv2[Half(50,8,8)]
+[TensorRT] VERBOSE: Layer: pool2 (Pooling), Tactic: -2, conv2[Half(50,8,8)] -> pool2[Half(50,4,4)]
+[TensorRT] VERBOSE: Layer: ip1 + relu1 input reformatter 0 (Reformat), Tactic: 0, pool2[Half(50,4,4)] -> ip1 + relu1 reformatted input 0[Half(50,4,4)]
+[TensorRT] VERBOSE: Layer: ip1 + relu1 (FullyConnected), Tactic: 5, ip1 + relu1 reformatted input 0[Half(50,4,4)] -> ip1[Half(500,1,1)]
+[TensorRT] VERBOSE: Layer: ip2 input reformatter 0 (Reformat), Tactic: 1002, ip1[Half(500,1,1)] -> ip2 reformatted input 0[Half(500,1,1)]
+[TensorRT] VERBOSE: Layer: ip2 (caskFullyConnectedFP16), Tactic: -4635167364712724736, ip2 reformatted input 0[Half(500,1,1)] -> ip2[Half(10,1,1)]
+[TensorRT] VERBOSE: Layer: prob input reformatter 0 (Reformat), Tactic: 0, ip2[Half(10,1,1)] -> prob reformatted input 0[Float(10,1,1)]
+[TensorRT] VERBOSE: Layer: prob (SoftMax), Tactic: 1001, prob reformatted input 0[Float(10,1,1)] -> prob[Float(10,1,1)]
+

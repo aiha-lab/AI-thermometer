@@ -1,0 +1,28 @@
+Script started on 2020-08-06 13:05:06+0900
+]0;nvidia@nvidia-desktop: ~/python/uff_ssd[01;32mnvidia@nvidia-desktop[00m:[01;34m~/python/uff_ssd[00m$ exitpython3 detect_objects.py ./img[K[Kmages/image1.jpg [K[K[K[K[K[K2.jpg 
+2020-08-06 13:05:20.371489: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.0
+[TensorRT] ERROR: Could not register plugin creator:  FlattenConcat_TRT in namespace: 
+TensorRT inference engine settings:
+  * Inference precision - DataType.FLOAT
+  * Max batch size - 1
+
+Loading cached TensorRT engine from /home/nvidia/python/uff_ssd/utils/../workspace/engines/FLOAT/engine_bs_1.buf
+TensorRT inference time: 56 ms
+Detected kite with confidence 97%
+Detected person with confidence 91%
+Detected kite with confidence 89%
+Detected person with confidence 89%
+Detected kite with confidence 83%
+Detected kite with confidence 82%
+Detected person with confidence 76%
+Detected kite with confidence 74%
+Detected person with confidence 70%
+Detected person with confidence 62%
+Detected person with confidence 59%
+Total time taken for one image: 269 ms
+
+Saved output image to: /home/nvidia/python/uff_ssd/utils/../image_inferred.jpg
+]0;nvidia@nvidia-desktop: ~/python/uff_ssd[01;32mnvidia@nvidia-desktop[00m:[01;34m~/python/uff_ssd[00m$ exit
+exit
+
+Script done on 2020-08-06 13:05:39+0900

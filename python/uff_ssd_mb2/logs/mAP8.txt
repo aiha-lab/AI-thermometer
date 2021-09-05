@@ -1,0 +1,101 @@
+Infering image 1/4952
+Infering image 65/4952
+Infering image 129/4952
+Infering image 193/4952
+Infering image 257/4952
+Infering image 321/4952
+Infering image 385/4952
+Infering image 449/4952
+Infering image 513/4952
+Infering image 577/4952
+Infering image 641/4952
+Infering image 705/4952
+Infering image 769/4952
+Infering image 833/4952
+Infering image 897/4952
+Infering image 961/4952
+Infering image 1025/4952
+Infering image 1089/4952
+Infering image 1153/4952
+Infering image 1217/4952
+Infering image 1281/4952
+Infering image 1345/4952
+Infering image 1409/4952
+Infering image 1473/4952
+Infering image 1537/4952
+Infering image 1601/4952
+Infering image 1665/4952
+Infering image 1729/4952
+Infering image 1793/4952
+Infering image 1857/4952
+Infering image 1921/4952
+Infering image 1985/4952
+Infering image 2049/4952
+Infering image 2113/4952
+Infering image 2177/4952
+Infering image 2241/4952
+Infering image 2305/4952
+Infering image 2369/4952
+Infering image 2433/4952
+Infering image 2497/4952
+Infering image 2561/4952
+Infering image 2625/4952
+Infering image 2689/4952
+Infering image 2753/4952
+Infering image 2817/4952
+Infering image 2881/4952
+Infering image 2945/4952
+Infering image 3009/4952
+Infering image 3073/4952
+Infering image 3137/4952
+Infering image 3201/4952
+Infering image 3265/4952
+Infering image 3329/4952
+Infering image 3393/4952
+Infering image 3457/4952
+Infering image 3521/4952
+Infering image 3585/4952
+Infering image 3649/4952
+Infering image 3713/4952
+Infering image 3777/4952
+Infering image 3841/4952
+Infering image 3905/4952
+Infering image 3969/4952
+Infering image 4033/4952
+Infering image 4097/4952
+Infering image 4161/4952
+Infering image 4225/4952
+Infering image 4289/4952
+Infering image 4353/4952
+Infering image 4417/4952
+Infering image 4481/4952
+Infering image 4545/4952
+Infering image 4609/4952
+Infering image 4673/4952
+Infering image 4737/4952
+Infering image 4801/4952
+Infering image 4865/4952
+Infering image 4929/4952
+TensorRT SSD Img/sec: 99.93
+AP for aeroplane = 0.7803
+AP for bicycle = 0.7905
+AP for bird = 0.6764
+AP for boat = 0.5507
+AP for bottle = 0.4796
+AP for bus = 0.8301
+AP for car = 0.7592
+AP for cat = 0.8209
+AP for chair = 0.5910
+AP for cow = 0.7758
+AP for diningtable = 0.6817
+AP for dog = 0.7853
+AP for horse = 0.8426
+AP for motorbike = 0.8197
+AP for person = 0.7824
+AP for pottedplant = 0.4322
+AP for sheep = 0.7385
+AP for sofa = 0.7599
+AP for train = 0.8516
+AP for tvmonitor = 0.7045
+Mean AP = 0.7226
+

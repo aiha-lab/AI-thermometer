@@ -1,0 +1,938 @@
+[TensorRT] VERBOSE: Original: 8 layers
+[TensorRT] VERBOSE: After dead-layer removal: 8 layers
+[TensorRT] VERBOSE: After scale fusion: 8 layers
+[TensorRT] VERBOSE: After vertical fusions: 8 layers
+[TensorRT] VERBOSE: After final dead-layer removal: 8 layers
+[TensorRT] VERBOSE: After concat removal: 8 layers
+[TensorRT] VERBOSE: After tensor merging: 8 layers
+[TensorRT] INFO: Reading Calibration Cache for calibrator: EntropyCalibration2
+[TensorRT] INFO: Generated calibration scales using calibration cache. Make sure that calibration cache has latest scales.
+[TensorRT] INFO: To regenerate calibration cache, please delete the existing one. TensorRT will generate a new calibration cache.
+[TensorRT] VERBOSE: INT8 Inference Tensor Scales: data range [-1.00024,1.00024]
+[TensorRT] VERBOSE: INT8 Inference Tensor Scales: conv1 range [-2.13705,2.13705]
+[TensorRT] VERBOSE: INT8 Inference Tensor Scales: pool1 range [-2.13705,2.13705]
+[TensorRT] VERBOSE: INT8 Inference Tensor Scales: conv2 range [-13.4975,13.4975]
+[TensorRT] VERBOSE: INT8 Inference Tensor Scales: pool2 range [-13.4975,13.4975]
+[TensorRT] VERBOSE: INT8 Inference Tensor Scales: (Unnamed Layer* 4) [Fully Connected]_output range [-12.9157,12.9157]
+[TensorRT] VERBOSE: INT8 Inference Tensor Scales: ip1 range [-12.0725,12.0725]
+[TensorRT] VERBOSE: INT8 Inference Tensor Scales: ip2 range [-34.062,34.062]
+[TensorRT] VERBOSE: INT8 Inference Tensor Scales: prob range [-1.00024,1.00024]
+[TensorRT] VERBOSE: Original: 8 layers
+[TensorRT] VERBOSE: After dead-layer removal: 8 layers
+[TensorRT] VERBOSE: After scale fusion: 8 layers
+[TensorRT] VERBOSE: Fusing ip1 with relu1
+[TensorRT] VERBOSE: After vertical fusions: 7 layers
+[TensorRT] VERBOSE: After final dead-layer removal: 7 layers
+[TensorRT] VERBOSE: After tensor merging: 7 layers
+[TensorRT] VERBOSE: After concat removal: 7 layers
+[TensorRT] VERBOSE: Configuring builder for Int8 Mode completed in 0.00319902 seconds.
+[TensorRT] VERBOSE: Graph construction and optimization completed in 0.00341905 seconds.
+[TensorRT] INFO: 
+[TensorRT] INFO: --------------- Layers running on DLA: 
+[TensorRT] INFO: 
+[TensorRT] INFO: --------------- Layers running on GPU: 
+[TensorRT] INFO: conv1, pool1, conv2, pool2, ip1 + relu1, ip2, prob, 
+[TensorRT] VERBOSE: Constructing optimization profile number 0 out of 1
+--------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.360416
+[TensorRT] VERBOSE: Tactic: 0 time 0.023552
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.023552
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.364576
+[TensorRT] VERBOSE: Tactic: 0 time 0.04608
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.04608
+[TensorRT] VERBOSE: *************** Autotuning format combination: Float(1,28,784,784) -> Float(1,24,576,11520) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (LegacySASSConvolution)
+[TensorRT] VERBOSE: LegacySASSConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CaskConvolution)
+[TensorRT] VERBOSE: conv1 (scudnn) Set Tactic Name: volta_scudnn_128x128_relu_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: 1754569683116234317 time 0.653312
+[TensorRT] VERBOSE: conv1 (scudnn) Set Tactic Name: volta_scudnn_128x128_relu_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: 1825138533642645384 time 0.66048
+[TensorRT] VERBOSE: conv1 (scudnn) Set Tactic Name: volta_scudnn_128x32_relu_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: 2733356012094739613 time 0.196608
+[TensorRT] VERBOSE: conv1 (scudnn) Set Tactic Name: volta_scudnn_128x64_relu_xregs_large_nn_v1
+[TensorRT] VERBOSE: Tactic: 2842488832350522458 time 0.293632
+[TensorRT] VERBOSE: conv1 (scudnn) Set Tactic Name: volta_scudnn_128x128_relu_small_nn_v1
+[TensorRT] VERBOSE: Tactic: 3915320020053085238 time 0.50048
+[TensorRT] VERBOSE: conv1 (scudnn) Set Tactic Name: volta_scudnn_128x128_relu_xregs_large_nn_v1
+[TensorRT] VERBOSE: Tactic: 6448355332020552203 time 0.724192
+[TensorRT] VERBOSE: conv1 (scudnn) Set Tactic Name: volta_scudnn_128x64_relu_small_nn_v1
+[TensorRT] VERBOSE: Tactic: 6808617066150061604 time 0.262144
+[TensorRT] VERBOSE: conv1 (scudnn) Set Tactic Name: volta_scudnn_128x64_relu_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: 9091006216302412844 time 0.253952
+[TensorRT] VERBOSE: conv1 (scudnn) Set Tactic Name: volta_scudnn_128x64_relu_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: -8060443123034038864 time 0.269312
+[TensorRT] VERBOSE: conv1 (scudnn) Set Tactic Name: volta_scudnn_128x32_relu_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: -4420849921117327522 time 0.157728
+[TensorRT] VERBOSE: conv1 (scudnn) Set Tactic Name: volta_scudnn_128x32_relu_small_nn_v1
+[TensorRT] VERBOSE: Tactic: -3946921629105938337 time 0.155424
+[TensorRT] VERBOSE: Fastest Tactic: -3946921629105938337 Time: 0.155424
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CudaConvolution)
+[TensorRT] VERBOSE: Tactic: 0 time 0.301888
+[TensorRT] VERBOSE: Tactic: 1 time 0.37056
+[TensorRT] VERBOSE: Tactic: 2 time 0.396224
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.301888
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CudaDepthwiseConvolution)
+[TensorRT] VERBOSE: CudaDepthwiseConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: CaskConvolution Tactic: -3946921629105938337
+[TensorRT] VERBOSE: conv1 (scudnn) Set Tactic Name: volta_scudnn_128x32_relu_small_nn_v1
+[TensorRT] VERBOSE: 
+[TensorRT] VERBOSE: *************** Autotuning format combination: Int8(1,28,784:4,784) -> Float(1,24,576,11520) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (LegacySASSConvolution)
+[TensorRT] VERBOSE: LegacySASSConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CaskConvolution)
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x128_relu_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: 892787096507693407 time 0.508928
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x32_relu_xregs_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: 1204440019753223942 time 0.192448
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x32_relu_small_nn_v1
+[TensorRT] VERBOSE: Tactic: 1659301557717208403 time 0.158624
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x64_relu_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: 2057291331119027912 time 0.269984
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x32_relu_xregs_small_nn_v1
+[TensorRT] VERBOSE: Tactic: 3275977259705528576 time 0.188544
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x32_relu_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: 5623454780463195174 time 0.163872
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x64_relu_xregs_large_nn_v1
+[TensorRT] VERBOSE: Tactic: 8930254200803946944 time 0.30096
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x64_relu_small_nn_v1
+[TensorRT] VERBOSE: Tactic: -9204333525109552344 time 0.263392
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x64_relu_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: -7924103240988931433 time 0.257056
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x32_relu_xregs_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: -7489650117016530013 time 0.18432
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x128_relu_small_nn_v1
+[TensorRT] VERBOSE: Tactic: -4973811344878172338 time 0.498752
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x32_relu_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: -3908975881807046106 time 0.152544
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x128_relu_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: -1765942417666394360 time 0.495584
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x128_relu_xregs_large_nn_v1
+[TensorRT] VERBOSE: Tactic: -1228371230285617088 time 0.771072
+[TensorRT] VERBOSE: Fastest Tactic: -3908975881807046106 Time: 0.152544
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CudaConvolution)
+[TensorRT] VERBOSE: CudaConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CudaDepthwiseConvolution)
+[TensorRT] VERBOSE: CudaDepthwiseConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CudaGroupConvolution)
+[TensorRT] VERBOSE: CudaGroupConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: CaskConvolution Tactic: -3908975881807046106
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x32_relu_interior_nn_v1
+[TensorRT] VERBOSE: 
+[TensorRT] VERBOSE: *************** Autotuning format combination: Int8(1,28,784:4,784) -> Int8(1,24,576:4,2880) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (LegacySASSConvolution)
+[TensorRT] VERBOSE: LegacySASSConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CaskConvolution)
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x64_relu_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: 3145259992339075399 time 0.226304
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x128_relu_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: 4000990898022781625 time 0.42928
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x64_relu_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: 4438325421691896755 time 0.234688
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x64_relu_small_nn_v1
+[TensorRT] VERBOSE: Tactic: 4581732244273465060 time 0.231392
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_xregs_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: 4934335053031119367 time 0.163104
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x128_relu_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: 6797040896965118050 time 0.440512
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: 8006952294591770973 time 0.13616
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: 8097855305881829878 time 0.126848
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x128_relu_small_nn_v1
+[TensorRT] VERBOSE: Tactic: -7210942453088153035 time 0.43008
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_small_nn_v1
+[TensorRT] VERBOSE: Tactic: -6282183216199417697 time 0.132064
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x128_relu_xregs_large_nn_v1
+[TensorRT] VERBOSE: Tactic: -5026383765466876607 time 0.623616
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_xregs_small_nn_v1
+[TensorRT] VERBOSE: Tactic: -5016725782072253841 time 0.15152
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_xregs_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: -1543391652455542154 time 0.151584
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x64_relu_xregs_large_nn_v1
+[TensorRT] VERBOSE: Tactic: -1370999262391786833 time 0.249888
+[TensorRT] VERBOSE: Fastest Tactic: 8097855305881829878 Time: 0.126848
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CudaConvolution)
+[TensorRT] VERBOSE: CudaConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CudaDepthwiseConvolution)
+[TensorRT] VERBOSE: CudaDepthwiseConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CudaGroupConvolution)
+[TensorRT] VERBOSE: CudaGroupConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: CaskConvolution Tactic: 8097855305881829878
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_interior_nn_v1
+[TensorRT] VERBOSE: 
+[TensorRT] VERBOSE: *************** Autotuning format combination: Int8(1,28,784:4,784) -> Int8(1,24,576:32,576) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (LegacySASSConvolution)
+[TensorRT] VERBOSE: LegacySASSConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CaskConvolution)
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x128_relu_interior_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: 1025026069226666066 time 0.425984
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_xregs_medium_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: 1213457772632185722 time 0.160864
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_medium_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: 1713441381477652893 time 0.135008
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x64_relu_interior_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: 2339361327868109050 time 0.224032
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x64_relu_xregs_large_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: 7125598890155666458 time 0.241504
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_small_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: 8047041638267142825 time 0.131104
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x64_relu_small_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: -7846982807478255793 time 0.228704
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_xregs_interior_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: -7686150779628967382 time 0.149632
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_xregs_small_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: -6459719113600909000 time 0.149504
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x128_relu_small_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: -4573925292554651334 time 0.42784
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_interior_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: -4208188808979933945 time 0.123904
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x64_relu_medium_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: -3566249366964946311 time 0.232416
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x128_relu_medium_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: -2002418013575043687 time 0.439264
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x128_relu_xregs_large_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: -1659631603542281459 time 0.614336
+[TensorRT] VERBOSE: Fastest Tactic: -4208188808979933945 Time: 0.123904
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CudaConvolution)
+[TensorRT] VERBOSE: CudaConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CudaDepthwiseConvolution)
+[TensorRT] VERBOSE: CudaDepthwiseConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CudaGroupConvolution)
+[TensorRT] VERBOSE: CudaGroupConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: CaskConvolution Tactic: -4208188808979933945
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_interior_c32_nn_v1
+[TensorRT] VERBOSE: 
+[TensorRT] VERBOSE: *************** Autotuning format combination: Int8(1,28,784:32,784) -> Float(1,24,576:32,576) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (LegacySASSConvolution)
+[TensorRT] VERBOSE: LegacySASSConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CaskConvolution)
+[TensorRT] VERBOSE: CaskConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CudaConvolution)
+[TensorRT] VERBOSE: CudaConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CudaDepthwiseConvolution)
+[TensorRT] VERBOSE: CudaDepthwiseConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CudaGroupConvolution)
+[TensorRT] VERBOSE: CudaGroupConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: *************** Autotuning format combination: Int8(1,28,784:32,784) -> Int8(1,24,576:32,576) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (LegacySASSConvolution)
+[TensorRT] VERBOSE: LegacySASSConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CaskConvolution)
+[TensorRT] VERBOSE: conv1 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_128x128_ldg16_relu_medium_nt_v1
+[TensorRT] VERBOSE: Tactic: 66319348402778770 time 0.728096
+[TensorRT] VERBOSE: conv1 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_large_nt_v1
+[TensorRT] VERBOSE: Tactic: 1931698692231796048 time 0.446464
+[TensorRT] VERBOSE: conv1 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x128_ldg16_relu_medium_nt_v1
+[TensorRT] VERBOSE: Tactic: 2271687430539765460 time 0.770048
+[TensorRT] VERBOSE: conv1 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_128x128_ldg16_relu_interior_nt_v1
+[TensorRT] VERBOSE: Tactic: 5754467717466343388 time 0.724
+[TensorRT] VERBOSE: conv1 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_small_nt_v1
+[TensorRT] VERBOSE: Tactic: 7039764449991095921 time 0.430048
+[TensorRT] VERBOSE: conv1 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x128_ldg16_relu_interior_nt_v1
+[TensorRT] VERBOSE: Tactic: 7584772692956718645 time 0.758784
+[TensorRT] VERBOSE: conv1 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_singleBuffer_medium_nt_v1
+[TensorRT] VERBOSE: Tactic: -9114895246540757312 time 0.411648
+[TensorRT] VERBOSE: conv1 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_128x128_ldg16_relu_large_nt_v1
+[TensorRT] VERBOSE: Tactic: -8787970778927801941 time 0.723104
+[TensorRT] VERBOSE: conv1 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x128_ldg16_relu_large_nt_v1
+[TensorRT] VERBOSE: Tactic: -8225786209923559953 time 0.774176
+[TensorRT] VERBOSE: conv1 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_singleBuffer_large_nt_v1
+[TensorRT] VERBOSE: Tactic: -7373087278866484214 time 0.428992
+[TensorRT] VERBOSE: conv1 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_medium_nt_v1
+[TensorRT] VERBOSE: Tactic: -7274936339335021260 time 0.408672
+[TensorRT] VERBOSE: conv1 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_singleBuffer_small_nt_v1
+[TensorRT] VERBOSE: Tactic: -2102888629196925141 time 0.392192
+[TensorRT] VERBOSE: conv1 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_singleBuffer_interior_nt_v1
+[TensorRT] VERBOSE: Tactic: -1383447415429797909 time 0.381984
+[TensorRT] VERBOSE: conv1 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_interior_nt_v1
+[TensorRT] VERBOSE: Tactic: -743032628982127825 time 0.421952
+[TensorRT] VERBOSE: conv1 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x128_ldg16_relu_small_nt_v1
+[TensorRT] VERBOSE: Tactic: -674235064782459186 time 0.772096
+[TensorRT] VERBOSE: conv1 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_128x128_ldg16_relu_small_nt_v1
+[TensorRT] VERBOSE: Tactic: -182858804213663094 time 0.709504
+[TensorRT] VERBOSE: Fastest Tactic: -1383447415429797909 Time: 0.381984
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CudaConvolution)
+[TensorRT] VERBOSE: CudaConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CudaDepthwiseConvolution)
+[TensorRT] VERBOSE: CudaDepthwiseConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv1 (CudaGroupConvolution)
+[TensorRT] VERBOSE: CudaGroupConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: CaskConvolution Tactic: -1383447415429797909
+[TensorRT] VERBOSE: conv1 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_singleBuffer_interior_nt_v1
+[TensorRT] VERBOSE: 
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.371552
+[TensorRT] VERBOSE: Tactic: 0 time 0.059552
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.059552
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.37888
+[TensorRT] VERBOSE: Tactic: 0 time 0.34288
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.34288
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.36352
+[TensorRT] VERBOSE: Tactic: 0 time 0.244768
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.244768
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.37984
+[TensorRT] VERBOSE: Tactic: 0 time 0.221376
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.221376
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.317472
+[TensorRT] VERBOSE: Tactic: 0 time 0.432224
+[TensorRT] VERBOSE: Fastest Tactic: 1002 Time: 0.317472
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.480256
+[TensorRT] VERBOSE: Tactic: 0 time 0.078656
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.078656
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.377696
+[TensorRT] VERBOSE: Tactic: 0 time 0.037536
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.037536
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.394304
+[TensorRT] VERBOSE: Tactic: 0 time 0.122816
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.122816
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.301824
+[TensorRT] VERBOSE: Tactic: 0 time 0.033792
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.033792
+[TensorRT] VERBOSE: *************** Autotuning format combination: Float(1,24,576,11520) -> Float(1,12,144,2880) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: pool1 (Pooling)
+[TensorRT] VERBOSE: Tactic: -1 time 0.056352
+[TensorRT] VERBOSE: Fastest Tactic: -1 Time: 0.056352
+[TensorRT] VERBOSE: --------------- Timing Runner: pool1 (TiledPooling)
+[TensorRT] VERBOSE: Tactic: 5505281 time 0.157728
+[TensorRT] VERBOSE: Tactic: 5570817 time 0.098336
+[TensorRT] VERBOSE: Tactic: 5636353 time 0.080768
+[TensorRT] VERBOSE: Tactic: 5701889 time 0.071488
+[TensorRT] VERBOSE: Tactic: 5767425 time 0.06432
+[TensorRT] VERBOSE: Tactic: 5832961 time 0.072832
+[TensorRT] VERBOSE: Tactic: 5898497 time 0.062848
+[TensorRT] VERBOSE: Tactic: 5964033 time 0.070336
+[TensorRT] VERBOSE: Tactic: 6029569 time 0.083584
+[TensorRT] VERBOSE: Tactic: 6095105 time 0.055424
+[TensorRT] VERBOSE: Tactic: 6160641 time 0.052864
+[TensorRT] VERBOSE: Tactic: 6226177 time 0.054272
+[TensorRT] VERBOSE: Tactic: 6291713 time 0.052192
+[TensorRT] VERBOSE: Tactic: 6357249 time 0.052256
+[TensorRT] VERBOSE: Tactic: 6422785 time 0.052384
+[TensorRT] VERBOSE: Tactic: 6488321 time 0.055104
+[TensorRT] VERBOSE: Fastest Tactic: 6291713 Time: 0.052192
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: TiledPooling Tactic: 6291713
+[TensorRT] VERBOSE: 
+[TensorRT] VERBOSE: *************** Autotuning format combination: Int8(1,24,576:4,2880) -> Int8(1,12,144:4,720) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: pool1 (Pooling)
+[TensorRT] VERBOSE: Pooling has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: pool1 (TiledPooling)
+[TensorRT] VERBOSE: Tactic: 5505281 time 0.036832
+[TensorRT] VERBOSE: Tactic: 5570817 time 0.028064
+[TensorRT] VERBOSE: Tactic: 5636353 time 0.024064
+[TensorRT] VERBOSE: Tactic: 5701889 time 0.028352
+[TensorRT] VERBOSE: Tactic: 5767425 time 0.022432
+[TensorRT] VERBOSE: Tactic: 5832961 time 0.02272
+[TensorRT] VERBOSE: Tactic: 5898497 time 0.025888
+[TensorRT] VERBOSE: Tactic: 5964033 time 0.024576
+[TensorRT] VERBOSE: Tactic: 6029569 time 0.019008
+[TensorRT] VERBOSE: Tactic: 6095105 time 0.01568
+[TensorRT] VERBOSE: Tactic: 6160641 time 0.014688
+[TensorRT] VERBOSE: Tactic: 6226177 time 0.017408
+[TensorRT] VERBOSE: Tactic: 6291713 time 0.01808
+[TensorRT] VERBOSE: Tactic: 6357249 time 0.015968
+[TensorRT] VERBOSE: Tactic: 6422785 time 0.01584
+[TensorRT] VERBOSE: Tactic: 6488321 time 0.015808
+[TensorRT] VERBOSE: Fastest Tactic: 6160641 Time: 0.014688
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: TiledPooling Tactic: 6160641
+[TensorRT] VERBOSE: 
+[TensorRT] VERBOSE: *************** Autotuning format combination: Int8(1,24,576:32,576) -> Int8(1,12,144:32,144) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: pool1 (Pooling)
+[TensorRT] VERBOSE: Tactic: -4 time 0.020384
+[TensorRT] VERBOSE: Fastest Tactic: -4 Time: 0.020384
+[TensorRT] VERBOSE: --------------- Timing Runner: pool1 (TiledPooling)
+[TensorRT] VERBOSE: TiledPooling has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: Pooling Tactic: -4
+[TensorRT] VERBOSE: 
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.057408
+[TensorRT] VERBOSE: Tactic: 0 time 0.009184
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.009184
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.058272
+[TensorRT] VERBOSE: Tactic: 0 time 0.049152
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.049152
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.07072
+[TensorRT] VERBOSE: Tactic: 0 time 0.012864
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.012864
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.058848
+[TensorRT] VERBOSE: Tactic: 0 time 0.009472
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.009472
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.070688
+[TensorRT] VERBOSE: Tactic: 0 time 0.02448
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.02448
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.05776
+[TensorRT] VERBOSE: Tactic: 0 time 0.00928
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.00928
+[TensorRT] VERBOSE: *************** Autotuning format combination: Float(1,12,144,2880) -> Float(1,8,64,3200) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (LegacySASSConvolution)
+[TensorRT] VERBOSE: LegacySASSConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CaskConvolution)
+[TensorRT] VERBOSE: conv2 (scudnn) Set Tactic Name: volta_scudnn_128x128_relu_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: 1754569683116234317 time 0.332288
+[TensorRT] VERBOSE: conv2 (scudnn) Set Tactic Name: volta_scudnn_128x128_relu_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: 1825138533642645384 time 0.333824
+[TensorRT] VERBOSE: conv2 (scudnn) Set Tactic Name: volta_scudnn_128x32_relu_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: 2733356012094739613 time 0.191488
+[TensorRT] VERBOSE: conv2 (scudnn) Set Tactic Name: volta_scudnn_128x64_relu_xregs_large_nn_v1
+[TensorRT] VERBOSE: Tactic: 2842488832350522458 time 0.178272
+[TensorRT] VERBOSE: conv2 (scudnn) Set Tactic Name: volta_scudnn_128x128_relu_small_nn_v1
+[TensorRT] VERBOSE: Tactic: 3915320020053085238 time 0.333568
+[TensorRT] VERBOSE: conv2 (scudnn) Set Tactic Name: volta_scudnn_128x128_relu_xregs_large_nn_v1
+[TensorRT] VERBOSE: Tactic: 6448355332020552203 time 0.317472
+[TensorRT] VERBOSE: conv2 (scudnn) Set Tactic Name: volta_scudnn_128x64_relu_small_nn_v1
+[TensorRT] VERBOSE: Tactic: 6808617066150061604 time 0.163552
+[TensorRT] VERBOSE: conv2 (scudnn) Set Tactic Name: volta_scudnn_128x64_relu_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: 9091006216302412844 time 0.159712
+[TensorRT] VERBOSE: conv2 (scudnn) Set Tactic Name: volta_scudnn_128x64_relu_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: -8060443123034038864 time 0.165696
+[TensorRT] VERBOSE: conv2 (scudnn) Set Tactic Name: volta_scudnn_128x32_relu_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: -4420849921117327522 time 0.167968
+[TensorRT] VERBOSE: conv2 (scudnn) Set Tactic Name: volta_scudnn_128x32_relu_small_nn_v1
+[TensorRT] VERBOSE: Tactic: -3946921629105938337 time 0.181248
+[TensorRT] VERBOSE: Fastest Tactic: 9091006216302412844 Time: 0.159712
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CudaConvolution)
+[TensorRT] VERBOSE: Tactic: 0 time 0.249824
+[TensorRT] VERBOSE: Tactic: 1 time 0.186048
+[TensorRT] VERBOSE: Tactic: 2 time 0.317984
+[TensorRT] VERBOSE: Fastest Tactic: 1 Time: 0.186048
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CudaDepthwiseConvolution)
+[TensorRT] VERBOSE: CudaDepthwiseConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: CaskConvolution Tactic: 9091006216302412844
+[TensorRT] VERBOSE: conv2 (scudnn) Set Tactic Name: volta_scudnn_128x64_relu_interior_nn_v1
+[TensorRT] VERBOSE: 
+[TensorRT] VERBOSE: *************** Autotuning format combination: Int8(1,12,144:4,720) -> Float(1,8,64,3200) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (LegacySASSConvolution)
+[TensorRT] VERBOSE: LegacySASSConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CaskConvolution)
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x128_relu_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: 892787096507693407 time 0.0912
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x32_relu_xregs_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: 1204440019753223942 time 0.0744
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x32_relu_small_nn_v1
+[TensorRT] VERBOSE: Tactic: 1659301557717208403 time 0.058368
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x64_relu_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: 2057291331119027912 time 0.058144
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x32_relu_xregs_small_nn_v1
+[TensorRT] VERBOSE: Tactic: 3275977259705528576 time 0.07584
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x32_relu_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: 5623454780463195174 time 0.061248
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x64_relu_xregs_large_nn_v1
+[TensorRT] VERBOSE: Tactic: 8930254200803946944 time 0.054464
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x64_relu_small_nn_v1
+[TensorRT] VERBOSE: Tactic: -9204333525109552344 time 0.057088
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x64_relu_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: -7924103240988931433 time 0.053312
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x32_relu_xregs_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: -7489650117016530013 time 0.075616
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x128_relu_small_nn_v1
+[TensorRT] VERBOSE: Tactic: -4973811344878172338 time 0.09104
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x32_relu_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: -3908975881807046106 time 0.056064
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x128_relu_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: -1765942417666394360 time 0.091008
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x128_relu_xregs_large_nn_v1
+[TensorRT] VERBOSE: Tactic: -1228371230285617088 time 0.100832
+[TensorRT] VERBOSE: Fastest Tactic: -7924103240988931433 Time: 0.053312
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CudaConvolution)
+[TensorRT] VERBOSE: CudaConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CudaDepthwiseConvolution)
+[TensorRT] VERBOSE: CudaDepthwiseConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CudaGroupConvolution)
+[TensorRT] VERBOSE: CudaGroupConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: CaskConvolution Tactic: -7924103240988931433
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_fp32_icudnn_int8x4_128x64_relu_interior_nn_v1
+[TensorRT] VERBOSE: 
+[TensorRT] VERBOSE: *************** Autotuning format combination: Int8(1,12,144:4,720) -> Int8(1,8,64:4,832) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (LegacySASSConvolution)
+[TensorRT] VERBOSE: LegacySASSConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CaskConvolution)
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x64_relu_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: 3145259992339075399 time 0.048128
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x128_relu_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: 4000990898022781625 time 0.087008
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x64_relu_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: 4438325421691896755 time 0.052256
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x64_relu_small_nn_v1
+[TensorRT] VERBOSE: Tactic: 4581732244273465060 time 0.052224
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_xregs_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: 4934335053031119367 time 0.071648
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x128_relu_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: 6797040896965118050 time 0.087616
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_medium_nn_v1
+[TensorRT] VERBOSE: Tactic: 8006952294591770973 time 0.056288
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: 8097855305881829878 time 0.049984
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x128_relu_small_nn_v1
+[TensorRT] VERBOSE: Tactic: -7210942453088153035 time 0.085888
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_small_nn_v1
+[TensorRT] VERBOSE: Tactic: -6282183216199417697 time 0.054176
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x128_relu_xregs_large_nn_v1
+[TensorRT] VERBOSE: Tactic: -5026383765466876607 time 0.092608
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_xregs_small_nn_v1
+[TensorRT] VERBOSE: Tactic: -5016725782072253841 time 0.070624
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_xregs_interior_nn_v1
+[TensorRT] VERBOSE: Tactic: -1543391652455542154 time 0.069664
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x64_relu_xregs_large_nn_v1
+[TensorRT] VERBOSE: Tactic: -1370999262391786833 time 0.050336
+[TensorRT] VERBOSE: Fastest Tactic: 3145259992339075399 Time: 0.048128
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CudaConvolution)
+[TensorRT] VERBOSE: CudaConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CudaDepthwiseConvolution)
+[TensorRT] VERBOSE: CudaDepthwiseConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CudaGroupConvolution)
+[TensorRT] VERBOSE: CudaGroupConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: CaskConvolution Tactic: 3145259992339075399
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x64_relu_interior_nn_v1
+[TensorRT] VERBOSE: 
+[TensorRT] VERBOSE: *************** Autotuning format combination: Int8(1,12,144:4,720) -> Int8(1,8,64:32,128) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (LegacySASSConvolution)
+[TensorRT] VERBOSE: LegacySASSConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CaskConvolution)
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x128_relu_interior_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: 1025026069226666066 time 0.087008
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_xregs_medium_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: 1213457772632185722 time 0.071616
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_medium_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: 1713441381477652893 time 0.056288
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x64_relu_interior_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: 2339361327868109050 time 0.048384
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x64_relu_xregs_large_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: 7125598890155666458 time 0.049632
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_small_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: 8047041638267142825 time 0.054304
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x64_relu_small_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: -7846982807478255793 time 0.049536
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_xregs_interior_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: -7686150779628967382 time 0.0696
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_xregs_small_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: -6459719113600909000 time 0.068704
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x128_relu_small_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: -4573925292554651334 time 0.086016
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_interior_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: -4208188808979933945 time 0.050176
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x64_relu_medium_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: -3566249366964946311 time 0.052256
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x128_relu_medium_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: -2002418013575043687 time 0.08704
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x128_relu_xregs_large_c32_nn_v1
+[TensorRT] VERBOSE: Tactic: -1659631603542281459 time 0.092032
+[TensorRT] VERBOSE: Fastest Tactic: 2339361327868109050 Time: 0.048384
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CudaConvolution)
+[TensorRT] VERBOSE: CudaConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CudaDepthwiseConvolution)
+[TensorRT] VERBOSE: CudaDepthwiseConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CudaGroupConvolution)
+[TensorRT] VERBOSE: CudaGroupConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: CaskConvolution Tactic: 2339361327868109050
+[TensorRT] VERBOSE: conv2 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x64_relu_interior_c32_nn_v1
+[TensorRT] VERBOSE: 
+[TensorRT] VERBOSE: *************** Autotuning format combination: Int8(1,12,144:32,144) -> Float(1,8,64:32,128) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (LegacySASSConvolution)
+[TensorRT] VERBOSE: LegacySASSConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CaskConvolution)
+[TensorRT] VERBOSE: CaskConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CudaConvolution)
+[TensorRT] VERBOSE: CudaConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CudaDepthwiseConvolution)
+[TensorRT] VERBOSE: CudaDepthwiseConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CudaGroupConvolution)
+[TensorRT] VERBOSE: CudaGroupConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: *************** Autotuning format combination: Int8(1,12,144:32,144) -> Int8(1,8,64:32,128) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (LegacySASSConvolution)
+[TensorRT] VERBOSE: LegacySASSConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CaskConvolution)
+[TensorRT] VERBOSE: conv2 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_128x128_ldg16_relu_medium_nt_v1
+[TensorRT] VERBOSE: Tactic: 66319348402778770 time 0.045024
+[TensorRT] VERBOSE: conv2 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_large_nt_v1
+[TensorRT] VERBOSE: Tactic: 1931698692231796048 time 0.031872
+[TensorRT] VERBOSE: conv2 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x128_ldg16_relu_medium_nt_v1
+[TensorRT] VERBOSE: Tactic: 2271687430539765460 time 0.044
+[TensorRT] VERBOSE: conv2 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_128x128_ldg16_relu_interior_nt_v1
+[TensorRT] VERBOSE: Tactic: 5754467717466343388 time 0.042976
+[TensorRT] VERBOSE: conv2 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_small_nt_v1
+[TensorRT] VERBOSE: Tactic: 7039764449991095921 time 0.031776
+[TensorRT] VERBOSE: conv2 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x128_ldg16_relu_interior_nt_v1
+[TensorRT] VERBOSE: Tactic: 7584772692956718645 time 0.046304
+[TensorRT] VERBOSE: conv2 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_singleBuffer_medium_nt_v1
+[TensorRT] VERBOSE: Tactic: -9114895246540757312 time 0.029696
+[TensorRT] VERBOSE: conv2 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_128x128_ldg16_relu_large_nt_v1
+[TensorRT] VERBOSE: Tactic: -8787970778927801941 time 0.044736
+[TensorRT] VERBOSE: conv2 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x128_ldg16_relu_large_nt_v1
+[TensorRT] VERBOSE: Tactic: -8225786209923559953 time 0.044864
+[TensorRT] VERBOSE: conv2 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_singleBuffer_large_nt_v1
+[TensorRT] VERBOSE: Tactic: -7373087278866484214 time 0.03056
+[TensorRT] VERBOSE: conv2 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_medium_nt_v1
+[TensorRT] VERBOSE: Tactic: -7274936339335021260 time 0.031136
+[TensorRT] VERBOSE: conv2 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_singleBuffer_small_nt_v1
+[TensorRT] VERBOSE: Tactic: -2102888629196925141 time 0.029536
+[TensorRT] VERBOSE: conv2 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_singleBuffer_interior_nt_v1
+[TensorRT] VERBOSE: Tactic: -1383447415429797909 time 0.028448
+[TensorRT] VERBOSE: conv2 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_interior_nt_v1
+[TensorRT] VERBOSE: Tactic: -743032628982127825 time 0.029696
+[TensorRT] VERBOSE: conv2 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x128_ldg16_relu_small_nt_v1
+[TensorRT] VERBOSE: Tactic: -674235064782459186 time 0.044352
+[TensorRT] VERBOSE: conv2 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_128x128_ldg16_relu_small_nt_v1
+[TensorRT] VERBOSE: Tactic: -182858804213663094 time 0.045088
+[TensorRT] VERBOSE: Fastest Tactic: -1383447415429797909 Time: 0.028448
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CudaConvolution)
+[TensorRT] VERBOSE: CudaConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CudaDepthwiseConvolution)
+[TensorRT] VERBOSE: CudaDepthwiseConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: conv2 (CudaGroupConvolution)
+[TensorRT] VERBOSE: CudaGroupConvolution has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: CaskConvolution Tactic: -1383447415429797909
+[TensorRT] VERBOSE: conv2 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_singleBuffer_interior_nt_v1
+[TensorRT] VERBOSE: 
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.048512
+[TensorRT] VERBOSE: Tactic: 0 time 0.009216
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.009216
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.048288
+[TensorRT] VERBOSE: Tactic: 0 time 0.0416
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.0416
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.112832
+[TensorRT] VERBOSE: Tactic: 0 time 0.029152
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.029152
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.049184
+[TensorRT] VERBOSE: Tactic: 0 time 0.028512
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.028512
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.049248
+[TensorRT] VERBOSE: Tactic: 0 time 0.05088
+[TensorRT] VERBOSE: Fastest Tactic: 1002 Time: 0.049248
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.054272
+[TensorRT] VERBOSE: Tactic: 0 time 0.014208
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.014208
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.048128
+[TensorRT] VERBOSE: Tactic: 0 time 0.008736
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.008736
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.053952
+[TensorRT] VERBOSE: Tactic: 0 time 0.025664
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.025664
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.049152
+[TensorRT] VERBOSE: Tactic: 0 time 0.010624
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.010624
+[TensorRT] VERBOSE: *************** Autotuning format combination: Float(1,8,64,3200) -> Float(1,4,16,800) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: pool2 (Pooling)
+[TensorRT] VERBOSE: Tactic: -1 time 0.012512
+[TensorRT] VERBOSE: Fastest Tactic: -1 Time: 0.012512
+[TensorRT] VERBOSE: --------------- Timing Runner: pool2 (TiledPooling)
+[TensorRT] VERBOSE: Tactic: 5505281 time 0.07984
+[TensorRT] VERBOSE: Tactic: 5570817 time 0.050496
+[TensorRT] VERBOSE: Tactic: 5636353 time 0.04096
+[TensorRT] VERBOSE: Tactic: 5701889 time 0.039936
+[TensorRT] VERBOSE: Tactic: 5767425 time 0.03392
+[TensorRT] VERBOSE: Tactic: 5832961 time 0.033792
+[TensorRT] VERBOSE: Tactic: 5898497 time 0.034272
+[TensorRT] VERBOSE: Tactic: 5964033 time 0.03584
+[TensorRT] VERBOSE: Tactic: 6029569 time 0.046048
+[TensorRT] VERBOSE: Tactic: 6095105 time 0.029728
+[TensorRT] VERBOSE: Tactic: 6160641 time 0.024544
+[TensorRT] VERBOSE: Tactic: 6226177 time 0.022016
+[TensorRT] VERBOSE: Tactic: 6291713 time 0.022112
+[TensorRT] VERBOSE: Tactic: 6357249 time 0.022528
+[TensorRT] VERBOSE: Tactic: 6422785 time 0.021952
+[TensorRT] VERBOSE: Tactic: 6488321 time 0.02288
+[TensorRT] VERBOSE: Fastest Tactic: 6422785 Time: 0.021952
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: Pooling Tactic: -1
+[TensorRT] VERBOSE: 
+[TensorRT] VERBOSE: *************** Autotuning format combination: Int8(1,8,64:4,832) -> Int8(1,4,16:4,208) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: pool2 (Pooling)
+[TensorRT] VERBOSE: Pooling has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: --------------- Timing Runner: pool2 (TiledPooling)
+[TensorRT] VERBOSE: Tactic: 5505281 time 0.033824
+[TensorRT] VERBOSE: Tactic: 5570817 time 0.027808
+[TensorRT] VERBOSE: Tactic: 5636353 time 0.026592
+[TensorRT] VERBOSE: Tactic: 5701889 time 0.02768
+[TensorRT] VERBOSE: Tactic: 5767425 time 0.024576
+[TensorRT] VERBOSE: Tactic: 5832961 time 0.02768
+[TensorRT] VERBOSE: Tactic: 5898497 time 0.024832
+[TensorRT] VERBOSE: Tactic: 5964033 time 0.026656
+[TensorRT] VERBOSE: Tactic: 6029569 time 0.021472
+[TensorRT] VERBOSE: Tactic: 6095105 time 0.018432
+[TensorRT] VERBOSE: Tactic: 6160641 time 0.018432
+[TensorRT] VERBOSE: Tactic: 6226177 time 0.018464
+[TensorRT] VERBOSE: Tactic: 6291713 time 0.016768
+[TensorRT] VERBOSE: Tactic: 6357249 time 0.016768
+[TensorRT] VERBOSE: Tactic: 6422785 time 0.015552
+[TensorRT] VERBOSE: Tactic: 6488321 time 0.015584
+[TensorRT] VERBOSE: Fastest Tactic: 6422785 Time: 0.015552
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: TiledPooling Tactic: 6422785
+[TensorRT] VERBOSE: 
+[TensorRT] VERBOSE: *************** Autotuning format combination: Int8(1,8,64:32,128) -> Int8(1,4,16:32,32) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: pool2 (Pooling)
+[TensorRT] VERBOSE: Tactic: -4 time 0.006944
+[TensorRT] VERBOSE: Fastest Tactic: -4 Time: 0.006944
+[TensorRT] VERBOSE: --------------- Timing Runner: pool2 (TiledPooling)
+[TensorRT] VERBOSE: TiledPooling has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: Pooling Tactic: -4
+[TensorRT] VERBOSE: 
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.025344
+[TensorRT] VERBOSE: Tactic: 0 time 0.005344
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.005344
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.021248
+[TensorRT] VERBOSE: Tactic: 0 time 0.006976
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.006976
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.021056
+[TensorRT] VERBOSE: Tactic: 0 time 0.008448
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.008448
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.024928
+[TensorRT] VERBOSE: Tactic: 0 time 0.005088
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.005088
+[TensorRT] VERBOSE: *************** Autotuning format combination: Float(1,4,16,800) -> Float(1,1,1,500) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: ip1 + relu1 (CaskFullyConnected)
+[TensorRT] VERBOSE: ip1 + relu1 (caskFullyConnectedFP32) Set Tactic Name: volta_sgemm_128x32_relu_nn_v1
+[TensorRT] VERBOSE: Tactic: 8190451076631534509 time 0.094496
+[TensorRT] VERBOSE: ip1 + relu1 (caskFullyConnectedFP32) Set Tactic Name: volta_sgemm_32x128_relu_nn_v1
+[TensorRT] VERBOSE: Tactic: 5918215112415401770 time 0.112992
+[TensorRT] VERBOSE: ip1 + relu1 (caskFullyConnectedFP32) Set Tactic Name: volta_sgemm_64x64_relu_nn_v1
+[TensorRT] VERBOSE: Tactic: 3514307671120560729 time 0.124352
+[TensorRT] VERBOSE: ip1 + relu1 (caskFullyConnectedFP32) Set Tactic Name: volta_sgemm_128x128_relu_nn_v1
+[TensorRT] VERBOSE: Tactic: 3380542644225735979 time 0.212416
+[TensorRT] VERBOSE: ip1 + relu1 (caskFullyConnectedFP32) Set Tactic Name: volta_sgemm_128x64_relu_nn_v1
+[TensorRT] VERBOSE: Tactic: 2365066484941477695 time 0.120416
+[TensorRT] VERBOSE: Fastest Tactic: 8190451076631534509 Time: 0.094496
+[TensorRT] VERBOSE: --------------- Timing Runner: ip1 + relu1 (CudaFullyConnected)
+[TensorRT] VERBOSE: Tactic: 0 time 0.107488
+[TensorRT] VERBOSE: Tactic: 1 time 0.101088
+[TensorRT] VERBOSE: Fastest Tactic: 1 Time: 0.101088
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: CaskFullyConnected Tactic: 8190451076631534509
+[TensorRT] VERBOSE: ip1 + relu1 (caskFullyConnectedFP32) Set Tactic Name: volta_sgemm_128x32_relu_nn_v1
+[TensorRT] VERBOSE: 
+[TensorRT] VERBOSE: *************** Autotuning format combination: Int8(1,4,16:4,208) -> Int8(1,1,1:4,125) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: ip1 + relu1 (CaskFullyConnected)
+[TensorRT] VERBOSE: ip1 + relu1 (caskFullyConnectedFP32) Set Tactic Name: volta_int8_igemm_int8_128x128_ldg4_relu_nn_v0
+[TensorRT] VERBOSE: Tactic: -8859072962406416919 time 0.068096
+[TensorRT] VERBOSE: Fastest Tactic: -8859072962406416919 Time: 0.068096
+[TensorRT] VERBOSE: --------------- Timing Runner: ip1 + relu1 (CudaFullyConnected)
+[TensorRT] VERBOSE: CudaFullyConnected has no valid tactics for this config, skipping
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: CaskFullyConnected Tactic: -8859072962406416919
+[TensorRT] VERBOSE: ip1 + relu1 (caskFullyConnectedFP32) Set Tactic Name: volta_int8_igemm_int8_128x128_ldg4_relu_nn_v0
+[TensorRT] VERBOSE: 
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.01184
+[TensorRT] VERBOSE: Tactic: 0 time 0.00656
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.00656
+[TensorRT] VERBOSE: *************** Autotuning format combination: Float(1,1,1,500) -> Float(1,1,1,10) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: ip2 (CaskFullyConnected)
+[TensorRT] VERBOSE: ip2 (caskFullyConnectedFP32) Set Tactic Name: volta_sgemm_128x32_relu_nn_v1
+[TensorRT] VERBOSE: Tactic: 8190451076631534509 time 0.038368
+[TensorRT] VERBOSE: ip2 (caskFullyConnectedFP32) Set Tactic Name: volta_sgemm_32x128_relu_nn_v1
+[TensorRT] VERBOSE: Tactic: 5918215112415401770 time 0.03888
+[TensorRT] VERBOSE: ip2 (caskFullyConnectedFP32) Set Tactic Name: volta_sgemm_64x64_relu_nn_v1
+[TensorRT] VERBOSE: Tactic: 3514307671120560729 time 0.075744
+[TensorRT] VERBOSE: ip2 (caskFullyConnectedFP32) Set Tactic Name: volta_sgemm_128x128_relu_nn_v1
+[TensorRT] VERBOSE: Tactic: 3380542644225735979 time 0.13488
+[TensorRT] VERBOSE: ip2 (caskFullyConnectedFP32) Set Tactic Name: volta_sgemm_128x64_relu_nn_v1
+[TensorRT] VERBOSE: Tactic: 2365066484941477695 time 0.075328
+[TensorRT] VERBOSE: Fastest Tactic: 8190451076631534509 Time: 0.038368
+[TensorRT] VERBOSE: --------------- Timing Runner: ip2 (CudaFullyConnected)
+[TensorRT] VERBOSE: Tactic: 0 time 0.080672
+[TensorRT] VERBOSE: Tactic: 1 time 0.078816
+[TensorRT] VERBOSE: Fastest Tactic: 1 Time: 0.078816
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: CaskFullyConnected Tactic: 8190451076631534509
+[TensorRT] VERBOSE: ip2 (caskFullyConnectedFP32) Set Tactic Name: volta_sgemm_128x32_relu_nn_v1
+[TensorRT] VERBOSE: 
+[TensorRT] WARNING: No implementation of layer ip2 obeys the requested constraints in strict mode. No conforming implementation was found i.e. requested layer computation precision and output precision types are ignored, using the fastest implementation.
+[TensorRT] VERBOSE: *************** Autotuning format combination: Float(1,1,1,10) -> Float(1,1,1,10) ***************
+[TensorRT] VERBOSE: --------------- Timing Runner: prob (SoftMax)
+[TensorRT] VERBOSE: Tactic: 1001 time 0.008288
+[TensorRT] VERBOSE: Fastest Tactic: 1001 Time: 0.008288
+[TensorRT] VERBOSE: >>>>>>>>>>>>>>> Chose Runner Type: SoftMax Tactic: 1001
+[TensorRT] VERBOSE: 
+[TensorRT] WARNING: No implementation of layer prob obeys the requested constraints in strict mode. No conforming implementation was found i.e. requested layer computation precision and output precision types are ignored, using the fastest implementation.
+[TensorRT] VERBOSE: CopyNode format: [in] Float(1,28,784,784), [out] Int8(1,28,784:4,784)
+[TensorRT] VERBOSE: CopyNode format: [in] Int8(1,1,1:4,125), [out] Float(1,1,1,500)
+[TensorRT] WARNING: No implementation obeys reformatting-free rules, at least 2 reformatting nodes are needed, now picking the fastest path instead.
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.109888
+[TensorRT] VERBOSE: Tactic: 0 time 0.00704
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.00704
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.114656
+[TensorRT] VERBOSE: Tactic: 0 time 0.01456
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.01456
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.160352
+[TensorRT] VERBOSE: Tactic: 0 time 0.02544
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.02544
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.156704
+[TensorRT] VERBOSE: Tactic: 0 time 0.141664
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.141664
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.156704
+[TensorRT] VERBOSE: Tactic: 0 time 0.100512
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.100512
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.1592
+[TensorRT] VERBOSE: Tactic: 0 time 0.092032
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.092032
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.131104
+[TensorRT] VERBOSE: Tactic: 0 time 0.177312
+[TensorRT] VERBOSE: Fastest Tactic: 1002 Time: 0.131104
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.202048
+[TensorRT] VERBOSE: Tactic: 0 time 0.036224
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.036224
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.162464
+[TensorRT] VERBOSE: Tactic: 0 time 0.018912
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.018912
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.199008
+[TensorRT] VERBOSE: Tactic: 0 time 0.064352
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.064352
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.154656
+[TensorRT] VERBOSE: Tactic: 0 time 0.017504
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.017504
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.046624
+[TensorRT] VERBOSE: Tactic: 0 time 0.008576
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.008576
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.048384
+[TensorRT] VERBOSE: Tactic: 0 time 0.038624
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.038624
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.05616
+[TensorRT] VERBOSE: Tactic: 0 time 0.010304
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.010304
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.047232
+[TensorRT] VERBOSE: Tactic: 0 time 0.006784
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.006784
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.058016
+[TensorRT] VERBOSE: Tactic: 0 time 0.0208
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.0208
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.046528
+[TensorRT] VERBOSE: Tactic: 0 time 0.008544
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.008544
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.042016
+[TensorRT] VERBOSE: Tactic: 0 time 0.008736
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.008736
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.0424
+[TensorRT] VERBOSE: Tactic: 0 time 0.037792
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.037792
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.099776
+[TensorRT] VERBOSE: Tactic: 0 time 0.02528
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.02528
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.04448
+[TensorRT] VERBOSE: Tactic: 0 time 0.025728
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.025728
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.043648
+[TensorRT] VERBOSE: Tactic: 0 time 0.044448
+[TensorRT] VERBOSE: Fastest Tactic: 1002 Time: 0.043648
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.045472
+[TensorRT] VERBOSE: Tactic: 0 time 0.012928
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.012928
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.042624
+[TensorRT] VERBOSE: Tactic: 0 time 0.008416
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.008416
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.047744
+[TensorRT] VERBOSE: Tactic: 0 time 0.022336
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.022336
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.042592
+[TensorRT] VERBOSE: Tactic: 0 time 0.01056
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.01056
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.0264
+[TensorRT] VERBOSE: Tactic: 0 time 0.006304
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.006304
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.02096
+[TensorRT] VERBOSE: Tactic: 0 time 0.00704
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.00704
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.020768
+[TensorRT] VERBOSE: Tactic: 0 time 0.008736
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.008736
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.024896
+[TensorRT] VERBOSE: Tactic: 0 time 0.00512
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.00512
+[TensorRT] VERBOSE: --------------- Timing Runner: <reformat> (Reformat)
+[TensorRT] VERBOSE: Tactic: 1002 time 0.011968
+[TensorRT] VERBOSE: Tactic: 0 time 0.00656
+[TensorRT] VERBOSE: Fastest Tactic: 0 Time: 0.00656
+[TensorRT] VERBOSE: Adding reformat layer: conv1 reformatted input 0 (data) from Float(1,28,784,784) to Int8(1,28,784:4,784)
+[TensorRT] VERBOSE: Adding reformat layer: ip1 + relu1 reformatted input 0 (pool2) from Int8(1,4,16:32,32) to Int8(1,4,16:4,208)
+[TensorRT] VERBOSE: Adding reformat layer: ip2 reformatted input 0 (ip1) from Int8(1,1,1:4,125) to Float(1,1,1,500)
+[TensorRT] VERBOSE: Formats and tactics selection completed in 11.7025 seconds.
+[TensorRT] VERBOSE: After reformat layers: 10 layers
+[TensorRT] VERBOSE: Block size 1073741824
+[TensorRT] VERBOSE: Block size 589824
+[TensorRT] VERBOSE: Block size 147456
+[TensorRT] VERBOSE: Total Activation Memory: 1074479104
+[TensorRT] INFO: Detected 1 inputs and 1 output network tensors.
+[TensorRT] VERBOSE: conv1 (icudnn) Set Tactic Name: volta_int8x4_icudnn_int8x4_128x32_relu_interior_c32_nn_v1
+[TensorRT] VERBOSE: conv2 (i8816cudnn) Set Tactic Name: volta_int8_i8816cudnn_int8_256x64_ldg16_relu_singleBuffer_interior_nt_v1
+[TensorRT] VERBOSE: ip1 + relu1 (caskFullyConnectedFP32) Set Tactic Name: volta_int8_igemm_int8_128x128_ldg4_relu_nn_v0
+[TensorRT] VERBOSE: ip2 (caskFullyConnectedFP32) Set Tactic Name: volta_sgemm_128x32_relu_nn_v1
+[TensorRT] VERBOSE: Engine generation completed in 16.3766 seconds.
+[TensorRT] VERBOSE: Engine Layer Information:
+[TensorRT] VERBOSE: Layer: conv1 input reformatter 0 (Reformat), Tactic: 0, data[Float(1,28,28)] -> conv1 reformatted input 0[Int8(1,28,28)]
+[TensorRT] VERBOSE: Layer: conv1 (icudnn), Tactic: -4208188808979933945, conv1 reformatted input 0[Int8(1,28,28)] -> conv1[Int8(20,24,24)]
+[TensorRT] VERBOSE: Layer: pool1 (Pooling), Tactic: -4, conv1[Int8(20,24,24)] -> pool1[Int8(20,12,12)]
+[TensorRT] VERBOSE: Layer: conv2 (i8816cudnn), Tactic: -1383447415429797909, pool1[Int8(20,12,12)] -> conv2[Int8(50,8,8)]
+[TensorRT] VERBOSE: Layer: pool2 (Pooling), Tactic: -4, conv2[Int8(50,8,8)] -> pool2[Int8(50,4,4)]
+[TensorRT] VERBOSE: Layer: ip1 + relu1 input reformatter 0 (Reformat), Tactic: 0, pool2[Int8(50,4,4)] -> ip1 + relu1 reformatted input 0[Int8(50,4,4)]
+[TensorRT] VERBOSE: Layer: ip1 + relu1 (caskFullyConnectedFP32), Tactic: -8859072962406416919, ip1 + relu1 reformatted input 0[Int8(50,4,4)] -> ip1[Int8(500,1,1)]
+[TensorRT] VERBOSE: Layer: ip2 input reformatter 0 (Reformat), Tactic: 0, ip1[Int8(500,1,1)] -> ip2 reformatted input 0[Float(500,1,1)]
+[TensorRT] VERBOSE: Layer: ip2 (caskFullyConnectedFP32), Tactic: 8190451076631534509, ip2 reformatted input 0[Float(500,1,1)] -> ip2[Float(10,1,1)]
+[TensorRT] VERBOSE: Layer: prob (SoftMax), Tactic: 1001, ip2[Float(10,1,1)] -> prob[Float(10,1,1)]
+Validating batch 20
+Validating batch 40
+Validating batch 60
+Validating batch 80
+Validating batch 100
+Validating batch 120
+Validating batch 140
+Validating batch 160
+Validating batch 180
+Validating batch 200
+Validating batch 220
+Validating batch 240
+Validating batch 260
+Validating batch 280
+Validating batch 300
+TensorRT inference time: 171.032 ms
+Total Accuracy: 99.08%
+
