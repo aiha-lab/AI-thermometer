@@ -22,6 +22,7 @@ Final demo of this project.
 ### demo_face_detection/
 This demo is only for face recognition on normal images(not for thermal images).
 
+<img src="demo_face_detection/demo_face_detection_demo_result.gif" width="640px" height="360px"></img><br/>
 
 ## References
 * TensorRT demo code: https://github.com/jkjung-avt/tensorrt_demos
