@@ -16,7 +16,7 @@ The demo code(demo/demo.py) is operates in pipeline fashion. The entire workload
 
 ## Configuration
 ### demo/
-Final demo of this project.
+Final demo of this project. demo.py performs real-time object detection on thermal camera input. The system operates in Wait-Mode if there is no person in front of the camera. When a human face appears, the system enters Measure-Mode, then displays the bounding box as well as the current temperature. The system also displays messages. For example, it shows "Fever" for an alert if the measured temperature exceeds 37.5℃; otherwise, it prints "Normal." When the human face disappears again, the system goes back to Wait-Mode.
 
 <img src="demo/results/1.jpg" width="240px" height="180px"></img>
 <img src="demo/results/2.jpg" width="240px" height="180px"></img><br/>
