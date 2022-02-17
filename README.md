@@ -20,6 +20,7 @@ Final demo of this project. demo.py performs real-time object detection on therm
 
 <img src="demo/results/1.jpg" width="240px" height="180px"></img>
 <img src="demo/results/2.jpg" width="240px" height="180px"></img><br/>
+<img src="demo/results/demo_test_1.gif" width="240px" height="180px"></img>
 
 ### demo_face_detection/
 This demo is only for face recognition on normal images(not for thermal images).
